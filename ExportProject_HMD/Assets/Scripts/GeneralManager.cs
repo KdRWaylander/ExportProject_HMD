@@ -3,20 +3,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GeneralManager : MonoBehaviour {
-    public static float LATENCY_OFFSET;
-    [SerializeField] float m_latency = 0;
-
     PlaySequenceManager     m_PSM;
+    OutputWriter            m_OutputWriter;
 
     /* INITIALIZATION */
-    void Awake()
-    {
-        LATENCY_OFFSET = m_latency;
-    }
-
     void Start ()
     {
         m_PSM = GetComponent<PlaySequenceManager>();
+        m_OutputWriter = GetComponent<OutputWriter>();
     }
 
     void Update()
@@ -24,6 +18,9 @@ public class GeneralManager : MonoBehaviour {
         // Start sequence: Y_manette ou A_clavier
         if ((Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.A)) && !m_PSM.GetIsRunning())
         {
+            if(m_OutputWriter.GetRecord())
+                m_OutputWriter.CreateFile();
+
             StartCoroutine(m_PSM.FirstStep());
         }
 

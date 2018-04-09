@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Head_NoSteamVR.unity
     guid: 7363ee0e6a0dc0a4888eeb8dc106f719
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Head_DoubleCam.unity
     guid: a323a791a97e7c844b0d9c41a84e7d53
+  - enabled: 1
+    path: Assets/Scenes/Head_DoubleCam_Baked.unity
+    guid: 978b51ad1cb64be48a08fe7b7c313192

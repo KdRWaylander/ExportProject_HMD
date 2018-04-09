@@ -333,25 +333,10 @@ public class SteamVR_Render : MonoBehaviour
     }
 
 #if UNITY_2017_1_OR_NEWER
-    /*
     void OnBeforeRender()
     {
         UpdatePoses();
     }
-    */
-
-    void OnBeforeRender()
-    {
-        StartCoroutine(LaggyFollow());
-    }
-
-    private IEnumerator LaggyFollow()
-    {
-        yield return new WaitForSeconds(GeneralManager.LATENCY_OFFSET);
-        UpdatePoses();
-    }
-    /*
-    */
 #else
 	void OnCameraPreCull(Camera cam)
 	{
